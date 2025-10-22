@@ -13,3 +13,7 @@ Cada libro está asociado a un autor, y se busca registrar esta relación en la 
 - Listar todos los libros de un autor.
 - Buscar qué autor escribió determinado libro.
 - Registrar nuevos libros y autores.
+
+## Usuario admin
+Usuario: webadmin
+Contraseña: 123
