@@ -1,0 +1,48 @@
+<?php require 'header.phtml'; ?>
+
+<h1>Panel de Administración de Libros</h1>
+
+<form action="admin/libros/agregar" method="POST">
+    <div>
+        <label>Título</label>
+        <input type="text" name="titulo" required>
+    </div>
+    <div>
+        <label>Autor</label>
+        <select name="autor_id" required>
+            <option value="" disabled selected>Seleccionar autor</option>
+            <?php foreach ($autores as $autor): ?>
+                <option value="<?= $autor->autor_id ?>">
+                    <?= htmlspecialchars($autor->nombre) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <div>
+        <button type="submit">Agregar Libro</button>
+    </div>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($libros as $libro): ?>
+            <tr>
+                <td><?= htmlspecialchars($libro->titulo) ?></td>
+                <td><?= htmlspecialchars($libro->nombre_autor) ?></td>
+                <td>
+                    <a href="admin/libros/editar/<?= $libro->id ?>">Editar</a>
+                    <a href="admin/libros/eliminar/<?= $libro->id ?>">Eliminar</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+<?php require 'footer.phtml'; ?>

@@ -1,0 +1,41 @@
+<?php require 'header.phtml'; ?>
+
+<h1>Panel de Administración de Autores</h1>
+
+<form action="admin/autores/agregar" method="POST">
+    <div>
+        <label>Nombre del Autor</label>
+        <input type="text" name="nombre" required>
+    </div>
+    <div>
+        <label>Fecha de Nacimiento (Opcional)</label>
+        <input type="date" name="nacimiento">
+    </div>
+    <div>
+        <button type="submit">Agregar Autor</button>
+    </div>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Nacimiento</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($autores as $autor): ?>
+            <tr>
+                <td><?= htmlspecialchars($autor->nombre) ?></td>
+                <td><?= htmlspecialchars($autor->nacimiento) ?></td>
+                <td>
+                    <a href="admin/autores/editar/<?= $autor->autor_id ?>">Editar</a>
+                    <a href="admin/autores/eliminar/<?= $autor->autor_id ?>">Eliminar</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+<?php require 'footer.phtml'; ?>

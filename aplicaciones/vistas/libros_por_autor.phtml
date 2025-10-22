@@ -1,0 +1,27 @@
+<?php require 'header.phtml'; ?>
+
+<?php 
+    $nombreAutor = $libros[0]->nombre_autor ?? 'Este autor'; 
+?>
+
+<h1>Libros de <?= htmlspecialchars($nombreAutor) ?></h1>
+
+<?php if (empty($libros)): ?>
+    <div>
+        <?= htmlspecialchars($nombreAutor) ?> aún no tiene libros cargados en el sistema.
+    </div>
+<?php else: ?>
+    <ul>
+        <?php foreach ($libros as $libro): ?>
+            <li>
+                <a href="libro/<?= $libro->id ?>">
+                    <?= htmlspecialchars($libro->titulo) ?>
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+<?php endif; ?>
+
+<a href="autores">Volver a la lista de autores</a>
+
+<?php require 'footer.phtml'; ?>

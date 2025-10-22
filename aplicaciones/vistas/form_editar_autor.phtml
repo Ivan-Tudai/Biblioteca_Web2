@@ -1,0 +1,18 @@
+<?php require 'header.phtml'; ?>
+
+<h1>Editando a: <?= htmlspecialchars($autor->nombre) ?></h1>
+
+<form action="admin/autores/actualizar/<?= $autor->autor_id ?>" method="POST">
+    <div>
+        <label>Nombre del Autor</label>
+        <input type="text" name="nombre" value="<?= htmlspecialchars($autor->nombre) ?>" required>
+    </div>
+    <div>
+        <label>Fecha de Nacimiento</label>
+        <input type="date" name="nacimiento" value="<?= htmlspecialchars($autor->nacimiento) ?>">
+    </div>
+    <button type="submit">Guardar Cambios</button>
+    <a href="admin/autores">Cancelar</a>
+</form>
+
+<?php require 'footer.phtml'; ?>

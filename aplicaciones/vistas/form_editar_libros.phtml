@@ -1,0 +1,24 @@
+<?php require 'header.phtml'; ?>
+
+<h1>Editando: <?= htmlspecialchars($libro->titulo) ?></h1>
+
+<form action="admin/libros/actualizar/<?= $libro->id ?>" method="POST">
+    <div>
+        <label>Título</label>
+        <input type="text" name="titulo" value="<?= htmlspecialchars($libro->titulo) ?>" required>
+    </div>
+    <div>
+        <label>Autor</label>
+        <select name="autor_id" required>
+            <?php foreach ($autores as $autor): ?>
+                <option value="<?= $autor->autor_id ?>" <?= ($autor->autor_id == $libro->autor_id) ? 'selected' : '' ?>>
+                    <?= htmlspecialchars($autor->nombre) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <button type="submit">Guardar Cambios</button>
+    <a href="admin/libros">Cancelar</a>
+</form>
+
+<?php require 'footer.phtml'; ?>

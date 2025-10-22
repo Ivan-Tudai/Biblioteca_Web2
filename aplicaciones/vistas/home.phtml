@@ -1,0 +1,15 @@
+<?php require 'header.phtml'; ?>
+
+<h1>Catálogo de Libros</h1>
+
+<ul>
+    <?php foreach ($libros as $libro): ?>
+        <li>
+            <a href="libro/<?= $libro->id ?>">
+                <strong><?= htmlspecialchars($libro->titulo) ?></strong>
+            </a>
+            - <em>Escrito por: <?= htmlspecialchars($libro->nombre_autor) ?></em>
+        </li>
+    <?php endforeach; ?>
+</ul>
+

@@ -1,0 +1,31 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <base href="<?= BASE_URL ?>">
+    <title>Mi Biblioteca</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="home" class="logo">Biblioteca TPE</a>
+            <ul>
+                <?php if (!isset($_SESSION['ID_USUARIO'])): ?>
+                    <li><a href="home">Catálogo</a></li>
+                    <li><a href="autores">Autores</a></li>
+                    <li><a href="login">Login</a></li>
+                <?php else: ?>
+                    <li><a href="admin/libros">Admin Libros</a></li>
+                    <li><a href="admin/autores">Admin Autores</a></li>
+                    <li><a href="logout">Logout (<?= $_SESSION['NOMBRE_USUARIO'] ?>)</a></li>
+                <?php endif; ?>
+            </ul>
+        </nav>
+    </header>
+    <main>

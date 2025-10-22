@@ -1,0 +1,13 @@
+<?php require 'header.phtml'; ?>
+
+<h1>Nuestros Autores</h1>
+
+<ul>
+    <?php foreach ($autores as $autor): ?>
+        <li>
+            <a href="autor/<?= $autor->autor_id ?>">
+                <?= htmlspecialchars($autor->nombre) ?>
+            </a>
+        </li>
+    <?php endforeach; ?>
+</ul>
